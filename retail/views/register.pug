@@ -1,0 +1,54 @@
+extends layout.pug
+
+block content
+    div.row
+        div.col-md-8.col-md-offset-2
+            div.panel.panel-default
+                div.panel-heading Register
+                div.panel-body
+                    if(errors)
+                        div.alert.alert-danger
+                            ul
+                                each error in errors
+                                    li=error.msg
+                    form(class="form-horizontal",method="POST",action="/dashboard/register")
+                        div.form-group
+                            label.col-lg-4.control-label First Name
+                            div.col-lg-6
+                                input(class="form-control",type="text",name="fname",value=(fname) ? fname : "" )
+                        div.form-group
+                            label.col-lg-4.control-label Last Name
+                            div.col-lg-6
+                                input(class="form-control",type="text",name="lname",value=(lname) ? lname : "")
+                        div.form-group
+                            label.col-lg-4.control-label Shop Name
+                            div.col-lg-6
+                                input(class="form-control",type="text",name="shop_name",value=(shop_name) ? shop_name : "")
+                        div.form-group
+                            label.col-lg-4.control-label Address Province
+                            div.col-lg-6
+                                input(class="form-control",type="text",name="addressProvince",value=(addressProvince) ? addressProvince : "")
+                        div.form-group
+                            label.col-lg-4.control-label Address City
+                            div.col-lg-6
+                                input(class="form-control",type="text",name="addressCity",value=(addressCity) ? addressCity : "")
+                        div.form-group
+                            label.col-lg-4.control-label Address District
+                            div.col-lg-6
+                                input(class="form-control",type="text",name="addressDistrict",value=(addressDistrict) ? addressDistrict : "")
+                        div.form-group
+                            label.col-lg-4.control-label E-Mail Address
+                            div.col-lg-6
+                                input(class="form-control",type="text",name="email",value=(email) ? email : "")
+                        div.form-group
+                            label.col-lg-4.control-label Password
+                            div.col-lg-6
+                                input(class="form-control",type="password",name="password")
+                        div.form-group
+                            label.col-lg-4.control-label Confirm Password
+                            div.col-lg-6
+                                input(class="form-control",type="password",name="password_confirmation")
+                        div.form-group
+                            div.col-md-6.col-md-offset-4
+                                button.btn.btn-primary Register
+
